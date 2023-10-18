@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gjuyfsvj5gs0"
+path="res://.godot/imported/characterVampire.obj-dc36a7a1687f629f69f61110e6977a1c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/characterVampire.obj-dc36a7a1687f629f69f61110e6977a1c.mesh"]
+
+source_file="res://models/characterVampire.obj"
+dest_files=["res://.godot/imported/characterVampire.obj-dc36a7a1687f629f69f61110e6977a1c.mesh", "res://.godot/imported/characterVampire.obj-dc36a7a1687f629f69f61110e6977a1c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
