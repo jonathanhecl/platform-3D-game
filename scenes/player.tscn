@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://d67fchm5yw6h"]
+
+[ext_resource type="Script" path="res://scenes/Player.gd" id="1_w2w2l"]
+[ext_resource type="ArrayMesh" uid="uid://gjuyfsvj5gs0" path="res://models/characterVampire.obj" id="2_kyaen"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yvuu3"]
+radius = 0.303693
+height = 1.1445
+
+[sub_resource type="LabelSettings" id="LabelSettings_ak7nc"]
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+script = ExtResource("1_w2w2l")
+
+[node name="CharacterVampire" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("2_kyaen")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582288, 0)
+shape = SubResource("CapsuleShape3D_yvuu3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.967139, 0.130109, -0.218434, -1.59697e-16, 0.859139, 0.511743, 0.254247, -0.494927, 0.830907, -1.80818, 3.1055, 4.04076)
+current = true
+fov = 60.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 16.0
+offset_right = 443.0
+offset_bottom = 150.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_ak7nc")

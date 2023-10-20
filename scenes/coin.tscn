@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmplc7fx63j1"]
+
+[ext_resource type="Script" path="res://scenes/Coin.gd" id="1_87ixb"]
+[ext_resource type="ArrayMesh" uid="uid://cge2fuclikg8j" path="res://models/coinGold.obj" id="2_nyhd7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1sfuc"]
+radius = 0.186989
+
+[node name="Coin" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.60684)
+script = ExtResource("1_87ixb")
+
+[node name="CoinGold" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_nyhd7")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.199885, 0)
+shape = SubResource("SphereShape3D_1sfuc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6ihwiyr3htef"]
+
+[ext_resource type="Script" path="res://scenes/Flag.gd" id="1_jwxit"]
+[ext_resource type="ArrayMesh" uid="uid://cx3dwltkgs56g" path="res://models/flag.obj" id="2_i24jj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aprdt"]
+size = Vector3(0.422911, 1, 0.306494)
+
+[node name="EndFlag" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23759, 1.16264, 16.6987)
+script = ExtResource("1_jwxit")
+next_level = "res://scenes/level1.tscn"
+
+[node name="Flag2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_i24jj")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121395, 0.426859, 0)
+shape = SubResource("BoxShape3D_aprdt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

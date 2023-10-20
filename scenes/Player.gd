@@ -4,9 +4,12 @@ var move_speed: float = 4.0
 var jump_force: float = 8.0
 var gravity: float = 20.0
 
+var score: float
+
 var facing_angle: float
 
 @onready var model : MeshInstance3D = get_node("CharacterVampire")
+@onready var score_label: Label = get_node("Label")
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -32,3 +35,7 @@ func _physics_process(delta):
 
 func game_over():
 	get_tree().reload_current_scene()
+
+func add_score(amount):
+	score += amount
+	score_label.text = str("Score: ", score)

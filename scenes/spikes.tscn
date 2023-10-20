@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqltdtkfd35g5"]
+
+[ext_resource type="Script" path="res://scenes/Spikes.gd" id="1_lbftq"]
+[ext_resource type="ArrayMesh" uid="uid://ckhit4w6oius4" path="res://models/spikesLarge.obj" id="2_tvft4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fr0rb"]
+size = Vector3(0.568448, 0.256427, 0.54052)
+
+[node name="Spikes" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.537038, 0.228673, -3.99291)
+script = ExtResource("1_lbftq")
+
+[node name="SpikesLarge" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_tvft4")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102559, 0)
+shape = SubResource("BoxShape3D_fr0rb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
